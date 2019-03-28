@@ -1,0 +1,11 @@
+{
+  "realm": "cdp",
+  "auth-server-url": "https://10.227.101.142:19990/auth",
+  "ssl-required": "external",
+  "resource": "broker",
+  "credentials": {
+    "secret": "dc9510cc-0ee4-4e45-8a3b-b585df89ac8d"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
