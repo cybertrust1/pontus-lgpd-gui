@@ -145,7 +145,7 @@ class ComplyPanel extends Component
           {this.renderItemRaw("Impacto Prot Dados", <NavPanelPrivacyImpactAssessment
             style={{height: '100%', width: '100%'}}/>, <Icon
             icon={shareAlt}/>, <NavPanelPrivacyImpactAssessmentPopup/>)}
-          {this.renderItemRaw("Data Prot'n Offcr", <NavPanelDataProtnOfficer style={{height: '100%', width: '100%'}}/>,
+          {this.renderItemRaw("Encarregado", <NavPanelDataProtnOfficer style={{height: '100%', width: '100%'}}/>,
             <Icon icon={blackTie}/>,
             <NavPanelDataProtnOfficerPopup/>)}
           {this.renderItemRaw("Internacional", <NavPanelInternational style={{height: '100%', width: '100%'}}/>, <Icon
