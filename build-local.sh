@@ -1,4 +1,5 @@
 #!/bin/bash
+export GENERATE_SOURCEMAP=false
 git pull
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 VERSION=PVGDPR_Sandbox-001
@@ -11,7 +12,7 @@ export DISTDIR="$DIR/../pontus-dist/opt/pontus/pontus-gui-lgpd/$VERSION/lib";
 CURDIR=`pwd`
 cd $DIR
 /bin/npm update
-/bin/npm run-script build
+/bin/npm --max-old-space-size=16000000 run-script build
 
 #if [[ ! -d $NODE_DISTDIR ]]; then
   #mkdir -p $NODE_DISTDIR

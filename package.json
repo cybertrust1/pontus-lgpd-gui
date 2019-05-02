@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "pvgdpr/",
+  "homepage": "pvlgpd/",
   "private": true,
   "dependencies": {
     "@handsontable/react": "^3.0.0",
