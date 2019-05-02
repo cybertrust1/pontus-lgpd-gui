@@ -121,7 +121,15 @@ class NavPanelSubjectAccessRequest extends PontusComponent
   saveState = () =>
   {
     try{
-      var state = JSON.stringify(this.instance.toConfig());
+  
+  
+      // let conf = this.pvToConfig(this.instance.root);
+      let conf = this.instance.toConfig();
+  
+      // let state = JSON.stringify(conf);
+  
+      let state = this.stringify(conf);
+      // var state = JSON.stringify(this.instance.toConfig());
       localStorage.setItem('savedStateNavPanelSubjectAccessRequest', state);
   
     }catch(e){

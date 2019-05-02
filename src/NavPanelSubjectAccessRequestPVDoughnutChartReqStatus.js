@@ -250,7 +250,11 @@ class NavPanelSubjectAccessRequestPVDoughnutChartReqStatus extends PontusCompone
         data={this.state.data}
         redraw={true}
         onDoubleClick={this.ensureData}
-
+        options={{
+          responsive: true,
+          legend: {
+            position: "right"
+          }}}
       />
     
     
