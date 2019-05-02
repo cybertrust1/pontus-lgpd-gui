@@ -261,7 +261,8 @@ class NavPanelConsentPVDoughnutChartConsentStatus extends PontusComponent
         ref={this.setObj}
         data={this.state.data}
         redraw={true}
-      
+        onDoubleClick={this.ensureData}
+
       />
     
     

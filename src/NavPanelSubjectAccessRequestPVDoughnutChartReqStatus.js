@@ -249,7 +249,8 @@ class NavPanelSubjectAccessRequestPVDoughnutChartReqStatus extends PontusCompone
         ref={this.setObj}
         data={this.state.data}
         redraw={true}
-      
+        onDoubleClick={this.ensureData}
+
       />
     
     
