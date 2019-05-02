@@ -1,4 +1,5 @@
 import PVGrid from './PVGrid';
+import PontusComponent from "./PontusComponent";
 
 //
 
@@ -8,6 +9,7 @@ class NavPanelLawfulBasisPVGrid extends PVGrid
   componentDidMount()
   {
     this.setNamespace("NavPanelLawfulBasis");
+    this.url = PontusComponent.getGraphURL(this.props);
   
     super.componentDidMount();
     
