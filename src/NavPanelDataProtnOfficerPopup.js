@@ -27,10 +27,11 @@ class NavPanelDataProtnOfficerPopup extends PVGDPRScores
     'necessário designar formalmente um responsável pela\n' +
     'proteção de dados.';
     
-    this.title = "Data Prot'n Offcr";
+    this.title = "Encarregado";
     this.icon = blackTie;
     this.weight = 1;
   
+    
   }
   
   
