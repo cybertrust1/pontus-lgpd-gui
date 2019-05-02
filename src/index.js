@@ -207,7 +207,7 @@ function appRender(kc)
   // else
   
     
-    loadJSON(isDev?'keycloak-conf.json': 'pvgdpr_gui/keycloak-conf.json',
+    loadJSON(isDev?'keycloak-conf.json': 'pvlgpd_gui/keycloak-conf.json',
       function (kcConf)
       {
         
