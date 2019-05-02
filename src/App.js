@@ -121,10 +121,10 @@ class MainPanel extends React.Component
           
           </Box>
           <Box style={{display: "flex", justifyContent: "center", alignItems: "center"}} px={1} w={1}>
-            <img height={200} width={200} src="pvgdpr/extract.png" alt="extract" onClick={this.clickOnExtract}/>
-            <img style={styleTrack} height={200} width={200} src="pvgdpr/track.png" alt="track"
+            <img height={200} width={200} src="pvlgpd/extract.png" alt="extract" onClick={this.clickOnExtract}/>
+            <img style={styleTrack} height={200} width={200} src="pvlgpd/track.png" alt="track"
                  onClick={this.clickOnTrack}/>
-            <img style={styleComply} height={200} width={200} src="pvgdpr/comply.png" alt="comply"
+            <img style={styleComply} height={200} width={200} src="pvlgpd/comply.png" alt="comply"
                  onClick={this.clickOnComply}/>
           </Box>
           <Box style={{display: "flex", justifyContent: "center", alignItems: "center"}} px={1} w={1}>
