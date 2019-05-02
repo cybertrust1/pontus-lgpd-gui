@@ -49,7 +49,7 @@ class NavPanelLawfulBasisPVGrid extends PVGrid
         " .as('data')\n" +
         " .match(\n" +
         "   __.as('data').values('Object.Lawful_Basis.Description').as('Description')\n"+
-        " , __.as('people').id().as('event_id')\n" +
+        " , __.as('data').id().as('event_id')\n" +
         " )\n" +
         selectBody
       , bindings: {
