@@ -15,7 +15,7 @@ class NavPanelLawfulBasisPVGrid extends PVGrid
     
     let colSettings = [];
     // colSettings[0] = {id: "Object.Lawful_Basis.Id", name: "Number", field:"Object.Lawful_Basis.Id", sortable:true  };
-    colSettings[0] = {id: "Object.Lawful_Basis.Description", name: "Description", field:"Object.Lawful_Basis.Description", sortable:true  };
+    colSettings[0] = {id: "Object.Lawful_Basis.Description", name: "Descrição", field:"Object.Lawful_Basis.Description", sortable:true  };
     
   
   
@@ -36,7 +36,7 @@ class NavPanelLawfulBasisPVGrid extends PVGrid
     
     
     let selectBody =
-      "  .select('Description' " +
+      "  .select('Object.Lawful_Basis.Description' " +
       "         ,'event_id' " +
       "         )";
     
@@ -48,7 +48,7 @@ class NavPanelLawfulBasisPVGrid extends PVGrid
         " .range(pg_from,pg_to)\n" +
         " .as('data')\n" +
         " .match(\n" +
-        "   __.as('data').values('Object.Lawful_Basis.Description').as('Description')\n"+
+        "   __.as('data').values('Object.Lawful_Basis.Description').as('Object.Lawful_Basis.Description')\n"+
         " , __.as('data').id().as('event_id')\n" +
         " )\n" +
         selectBody
