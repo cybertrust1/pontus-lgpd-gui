@@ -42,22 +42,22 @@ class NavPanelInformationYouHold extends PontusComponent
         {
           type: 'column',
           content: [
-            {
-              title: 'Controladores',
-              type: 'react-component',
-              component: 'controllers-grid'
-            }
-            , {
-              title: 'Processadores',
-              type: 'react-component',
-              component: 'processors-grid'
-            }
+            // {
+            //   title: 'Controladores',
+            //   type: 'react-component',
+            //   component: 'controllers-grid'
+            // }
+            // , {
+            //   title: 'Processadores',
+            //   type: 'react-component',
+            //   component: 'processors-grid'
+            // }
             // ,{
             //   title: 'Compliance Emails',
             //   type: 'react-component',
             //   component: 'compliance-email'
             // }
-            , {
+            {
               title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
@@ -66,6 +66,11 @@ class NavPanelInformationYouHold extends PontusComponent
               title: 'Tipos de Dados',
               type: 'react-component',
               component: 'data-types-doughnut'
+            }
+            , {
+              title: 'Titulares',
+              type: 'react-component',
+              component: 'data-grid'
             }
             , {
               title: 'Registros Inigualáveis',
