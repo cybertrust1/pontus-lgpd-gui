@@ -45,6 +45,10 @@ class PVDoughnutChart extends PontusComponent
   setObj = (obj) =>
   {
     this.obj = obj;
+    if (this.obj && this.obj.chartInstance && this.obj.chartInstance.canvas){
+      this.obj.chartInstance.canvas.ondblclick= this.ensureData;
+    
+    }
   };
   
   setQuery = (queryStr) =>
@@ -296,7 +300,12 @@ class PVDoughnutChart extends PontusComponent
         ref={this.setObj}
         data={this.state.data}
         redraw={true}
-      
+        onDoubleClick={this.ensureData}
+        options={{
+          responsive: true,
+          legend: {
+            position: "right"
+          }}}
       />
     
     
