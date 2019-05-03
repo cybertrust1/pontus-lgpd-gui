@@ -43,6 +43,10 @@ class NavPanelSubjectAccessRequestPVDoughnutChartReqType extends PontusComponent
   setObj = (obj) =>
   {
     this.obj = obj;
+    if (this.obj && this.obj.chartInstance && this.obj.chartInstance.canvas){
+      this.obj.chartInstance.canvas.ondblclick= this.ensureData;
+    
+    }
   };
   
  
