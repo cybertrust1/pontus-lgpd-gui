@@ -11,8 +11,8 @@ export DISTDIR="$DIR/../pontus-dist/opt/pontus/pontus-gui-lgpd/$VERSION/lib";
 
 CURDIR=`pwd`
 cd $DIR
-/bin/npm update
-/bin/npm --max-old-space-size=16000000 run-script build
+npm update
+npm --max-old-space-size=16000000 run-script build
 
 #if [[ ! -d $NODE_DISTDIR ]]; then
   #mkdir -p $NODE_DISTDIR
