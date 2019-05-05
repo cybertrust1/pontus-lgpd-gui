@@ -14,6 +14,8 @@ cd $DIR
 npm update
 npm --max-old-space-size=16000000 run-script build
 
+exit 0
+
 #if [[ ! -d $NODE_DISTDIR ]]; then
   #mkdir -p $NODE_DISTDIR
 #fi
