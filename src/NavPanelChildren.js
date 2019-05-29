@@ -93,7 +93,7 @@ class NavPanelChildren extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     
-    let savedState =  localStorage.getItem('savedStateNavPanelChildren');
+    let savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelChildren');
     
     
     if (savedState !== null)
@@ -131,7 +131,7 @@ class NavPanelChildren extends PontusComponent
     try{
       let stateObj = this.instance.toConfig();
       let state = this.customStringify(stateObj);
-      localStorage.setItem('savedStateNavPanelChildren', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelChildren', state);
   
     }
     catch(e){

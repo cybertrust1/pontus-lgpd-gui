@@ -72,7 +72,7 @@ class NavPanelPrivacyNotices extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelPrivacyNotices');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelPrivacyNotices');
     
     
     if (savedState !== null)
@@ -107,7 +107,7 @@ class NavPanelPrivacyNotices extends PontusComponent
   saveState = () =>
   {
     var state = JSON.stringify(this.instance.toConfig());
-    localStorage.setItem('savedStateNavPanelPrivacyNotices', state);
+    localStorage.setItem('LGPD-' +'savedStateNavPanelPrivacyNotices', state);
     
   };
   

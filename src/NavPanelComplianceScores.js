@@ -79,7 +79,7 @@ class NavPanelComplianceScores extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    let savedState =  localStorage.getItem('savedStateNavPanelComplianceScores');
+    let savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelComplianceScores');
     
     
     if (savedState !== null)
@@ -116,7 +116,7 @@ class NavPanelComplianceScores extends PontusComponent
   {
     try{
       let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelComplianceScores', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelComplianceScores', state);
   
     }catch(e){
       // ignore

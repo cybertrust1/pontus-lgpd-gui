@@ -78,7 +78,7 @@ class NavPanelInternational extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelInternational');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelInternational');
     
     
     if (savedState !== null)
@@ -114,7 +114,7 @@ class NavPanelInternational extends PontusComponent
   saveState = () =>
   {
     var state = JSON.stringify(this.instance.toConfig());
-    localStorage.setItem('savedStateNavPanelInternational', state);
+    localStorage.setItem('LGPD-' +'savedStateNavPanelInternational', state);
     
   };
   

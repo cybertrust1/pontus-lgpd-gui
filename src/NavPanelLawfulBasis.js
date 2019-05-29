@@ -78,7 +78,7 @@ class NavPanelLawfulBasis extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelLawfulBasis');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelLawfulBasis');
     
     
     if (savedState !== null)
@@ -115,7 +115,7 @@ class NavPanelLawfulBasis extends PontusComponent
   {
     try{
       let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelLawfulBasis', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelLawfulBasis', state);
   
     }
     catch (e){

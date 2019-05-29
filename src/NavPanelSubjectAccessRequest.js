@@ -81,7 +81,7 @@ class NavPanelSubjectAccessRequest extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
 
-    var savedState =  localStorage.getItem('savedStateNavPanelSubjectAccessRequest');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelSubjectAccessRequest');
     
     
     if (savedState !== null)
@@ -130,7 +130,7 @@ class NavPanelSubjectAccessRequest extends PontusComponent
   
       let state = this.stringify(conf);
       // var state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelSubjectAccessRequest', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelSubjectAccessRequest', state);
   
     }catch(e){
       // ignore

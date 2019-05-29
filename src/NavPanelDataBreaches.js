@@ -83,7 +83,7 @@ class NavPanelDataBreaches extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelDataBreaches');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelDataBreaches');
     
     
     if (savedState !== null)
@@ -119,7 +119,7 @@ class NavPanelDataBreaches extends PontusComponent
   saveState = () =>
   {
     var state = JSON.stringify(this.instance.toConfig());
-    localStorage.setItem('savedStateNavPanelDataBreaches', state);
+    localStorage.setItem('LGPD-' +'savedStateNavPanelDataBreaches', state);
     
   };
   

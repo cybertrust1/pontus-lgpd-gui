@@ -108,7 +108,7 @@ class NavPanelIndividualsRights extends PontusComponent
   {
     /* you can pass config as prop, or use a predefined one */
     
-    var savedState =  localStorage.getItem(this.stateVarName);
+    var savedState =  localStorage.getItem('LGPD-' +this.stateVarName);
     
     
     if (savedState !== null)
@@ -150,7 +150,7 @@ class NavPanelIndividualsRights extends PontusComponent
   saveState = () =>
   {
     var state = this.stringify(this.instance.toConfig());
-    localStorage.setItem(this.stateVarName, state);
+    localStorage.setItem('LGPD-' +this.stateVarName, state);
     
   };
   

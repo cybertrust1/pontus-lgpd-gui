@@ -83,7 +83,7 @@ class NavPanelConsent extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelConsent');
+    var savedState =  localStorage.getItem('LGPD-' + 'savedStateNavPanelConsent');
     
     
     if (savedState !== null)
@@ -121,7 +121,7 @@ class NavPanelConsent extends PontusComponent
   {
     try{
       let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelConsent', state);
+      localStorage.setItem('LGPD-' + 'savedStateNavPanelConsent', state);
   
     }catch(e){
       // ignore

@@ -660,7 +660,7 @@ class PVDataGraph extends PontusComponent
     
         }, 100);
   
-        localStorage.setItem(this.subscription, graph);
+        localStorage.setItem('LGPD-' +this.subscription, graph);
         
       }
       
@@ -699,7 +699,7 @@ class PVDataGraph extends PontusComponent
       
       let graph = {nodes: res.data.nodes, edges: res.data.edges};
       this.setState({graph: graph});
-      localStorage.setItem(this.subscription, graph);
+      localStorage.setItem('LGPD-' +this.subscription, graph);
       
       
       // this.network.setData(graph);
@@ -718,7 +718,7 @@ class PVDataGraph extends PontusComponent
   
   componentWillMount()
   {
-    let val = localStorage.getItem(this.subscription) || null;
+    let val = localStorage.getItem('LGPD-' +this.subscription) || null;
     
     if (val)
     {

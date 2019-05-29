@@ -71,7 +71,7 @@ class NavPanelDataProtnOfficer extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    let savedState = localStorage.getItem('savedStateNavPanelDataProtnOfficer');
+    let savedState = localStorage.getItem('LGPD-' +'savedStateNavPanelDataProtnOfficer');
     
     
     try
@@ -114,7 +114,7 @@ class NavPanelDataProtnOfficer extends PontusComponent
   {
     try{
       let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelPrivacyImpactAssessment', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelPrivacyImpactAssessment', state);
   
     }
     catch (e){

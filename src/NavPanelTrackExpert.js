@@ -80,7 +80,7 @@ class NavPanelTrackExpert extends PontusComponent
     /* you can pass config as prop, or use a predefined one */
     
     // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('savedStateNavPanelTrackExpert');
+    var savedState =  localStorage.getItem('LGPD-' +'savedStateNavPanelTrackExpert');
     
     
     if (savedState !== null)
@@ -122,7 +122,7 @@ class NavPanelTrackExpert extends PontusComponent
     try
     {
       let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('savedStateNavPanelTrackExpert', state);
+      localStorage.setItem('LGPD-' +'savedStateNavPanelTrackExpert', state);
   
     }catch (e){}
     
