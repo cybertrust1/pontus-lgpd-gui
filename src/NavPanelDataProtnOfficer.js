@@ -8,11 +8,12 @@ import NavPanelDataProtnOfficerPVDataGraph from './NavPanelDataProtnOfficerPVDat
 import PontusComponent from "./PontusComponent";
 
 
-class NavPanelDataProtnOfficer extends PontusComponent
+class NavPanelDataProtnOfficer extends PVGoldenLayoutComponent
 {
   constructor(props)
   {
     super(props);
+    this.stateVar = 'LGPD-savedStateNavPanelDataProtnOfficer';
     this.config = {
       settings: {
         hasHeaders: true,
@@ -39,11 +40,11 @@ class NavPanelDataProtnOfficer extends PontusComponent
           type: 'column',
           content: [
             {
-              title: 'Data',
+              title: 'Dados',
               type: 'react-component',
               component: 'data-grid'
             },  {
-              title: 'Data Graph',
+              title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
             }
@@ -54,106 +55,14 @@ class NavPanelDataProtnOfficer extends PontusComponent
     };
     
   }
-  
-  select = () =>
+  registerComponents = (instance) =>
   {
-  
-  };
-  
-  deselect = () =>
-  {
-  
-  };
-  
-  
-  componentDidMount()
-  {
-    /* you can pass config as prop, or use a predefined one */
+    this.registerComponentsPreamble(instance);
     
-    // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    let savedState = localStorage.getItem('LGPD-' +'savedStateNavPanelDataProtnOfficer');
-    
-    
-    try
-    {
-      if (savedState !== null)
-      {
-        this.instance = new GoldenLayout(JSON.parse(savedState), this.node);
-      }
-      else
-      {
-        this.instance = new GoldenLayout(this.config, this.node);
-      }
-    }
-    catch (e){
-      this.instance = new GoldenLayout(this.config, this.node);
-  
-    }
-    
-    // instance = new GoldenLayout(config, this.node);
-    /* register components or bind events to your new instance here */
     this.instance.registerComponent('data-grid', NavPanelDataProtnOfficerPVGrid);
     this.instance.registerComponent('data-graph', NavPanelDataProtnOfficerPVDataGraph);
-    this.instance.init();
-    
-    this.instance.on('tabCreated', function (tab)
-    {
-      tab.closeElement.off('click').click(function ()
-      {
-        // if( confirm( 'You have unsaved changes, are you sure you want to close this tab' ) ) {
-        //     tab.contentItem.remove();
-        // }
-      })
-    });
-    
-    this.instance.on('stateChanged', this.saveState);
-    
-  }
-  
-  saveState = () =>
-  {
-    try{
-      let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('LGPD-' +'savedStateNavPanelPrivacyImpactAssessment', state);
-  
-    }
-    catch (e){
-    
-    }
   };
   
-  setNode = (node) =>
-  {
-    this.node = node;
-  };
-  
-  handleResize = ({width, height}) =>
-  {
-    if (height > 0)
-    {
-      this.instance.updateSize(width, height);
-      
-    }
-    else
-    {
-      this.instance.updateSize(width, window.innerHeight - 50);
-      
-    }
-  };
-  
-  render()
-  {
-    
-    return (
-      <ResizeAware
-        style={{height: 'calc(100% - 20px)', width: '100%'}}
-        onResize={this.handleResize}
-      >
-        <div style={{height: '100%', width: '100%'}} ref={this.setNode}/>
-      </ResizeAware>
-    )
-    
-  }
 }
 
 export default NavPanelDataProtnOfficer;

@@ -9,13 +9,15 @@ import NavPanelConsentPVGridEventConsent from './NavPanelConsentPVGridEventConse
 import NavPanelConsentDataGraph from './NavPanelConsentDataGraph';
 import NavPanelConsentPVDoughnutChartConsentStatus from './NavPanelConsentPVDoughnutChartConsentStatus';
 import PontusComponent from "./PontusComponent";
+import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
 
-class NavPanelConsent extends PontusComponent
+class NavPanelConsent extends PVGoldenLayoutComponent
 {
   constructor(props)
   {
     super(props);
+    this.stateVar = 'LGPD-savedStateNavPanelConsent';
     this.config = {
       settings: {
         hasHeaders: true,
@@ -42,22 +44,22 @@ class NavPanelConsent extends PontusComponent
           type: 'column',
           content: [
             {
-              title: 'Privacy Notices',
+              title: 'Avisos de Privacidade',
               type: 'react-component',
               component: 'data-grid-privacy-notices'
             }
             ,{
-              title: 'Consent Events',
+              title: 'Consentimentos',
               type: 'react-component',
               component: 'data-grid-consent-events'
             }
             ,{
-              title: 'Consent Chart (Privacy Notice)',
+              title: 'Gráfico de Consentimentos (Avisos de Privacidade)',
               type: 'react-component',
               component: 'consent-chart'
             }
             ,{
-              title: 'Data Graph',
+              title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
             }
@@ -69,95 +71,16 @@ class NavPanelConsent extends PontusComponent
     
   }
   
-  select= ()=>{
-  
-  };
-  
-  deselect= ()=>{
-  
-  };
-  
-  
-  componentDidMount()
+  registerComponents = (instance) =>
   {
-    /* you can pass config as prop, or use a predefined one */
-    
-    // var savedState = null;// LPPM: TODO: re-enable this later localStorage.getItem('savedStatePontusPanel');
-    var savedState =  localStorage.getItem('LGPD-' + 'savedStateNavPanelConsent');
-    
-    
-    if (savedState !== null)
-    {
-      this.instance = new GoldenLayout(JSON.parse(savedState), this.node);
-    }
-    else
-    {
-      this.instance = new GoldenLayout(this.config, this.node);
-    }
-    
-    // instance = new GoldenLayout(config, this.node);
+    this.registerComponentsPreamble(instance);
     /* register components or bind events to your new instance here */
     this.instance.registerComponent('data-grid-privacy-notices', NavPanelConsentPVGridPrivacyNotices);
     this.instance.registerComponent('data-grid-consent-events', NavPanelConsentPVGridEventConsent);
     this.instance.registerComponent('consent-chart', NavPanelConsentPVDoughnutChartConsentStatus);
     this.instance.registerComponent('data-graph', NavPanelConsentDataGraph);
-    this.instance.init();
-    
-    this.instance.on('tabCreated', function (tab)
-    {
-      tab.closeElement.off('click').click(function ()
-      {
-        // if( confirm( 'You have unsaved changes, are you sure you want to close this tab' ) ) {
-        //     tab.contentItem.remove();
-        // }
-      })
-    });
-    
-    this.instance.on('stateChanged', this.saveState);
-    
-  }
-  
-  saveState = () =>
-  {
-    try{
-      let state = JSON.stringify(this.instance.toConfig());
-      localStorage.setItem('LGPD-' + 'savedStateNavPanelConsent', state);
-  
-    }catch(e){
-      // ignore
-    }
     
   };
   
-  setNode = (node) =>
-  {
-    this.node = node;
-  };
-  
-  handleResize = ({width, height}) =>
-  {
-    if (height > 0)
-    {
-      this.instance.updateSize(width, height);
-  
-    }
-    else{
-      this.instance.updateSize(width,window.innerHeight - 50);
-  
-    }
-  };
-  
-  render()
-  {
-    
-    return (         <ResizeAware
-        style={{height: 'calc(100% - 20px)', width: '100%'}}
-        onResize={this.handleResize}
-      >
-        <div style={{height: '100%', width: '100%'}} ref={this.setNode}/>
-      </ResizeAware>
-    )
-    
-  }
 }
 export default NavPanelConsent;

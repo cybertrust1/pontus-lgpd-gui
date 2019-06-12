@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Creatable} from 'react-select';
+import Creatable from 'react-select/creatable';
 
 // Be sure to include styles at some point, probably during your bootstrapping
 import axios from "axios";

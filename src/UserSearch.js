@@ -7,7 +7,7 @@ import SearchBar from 'react-search-bar';
 // import GremlinComboBoxReactBSMultiSelect from './GremlinComboBoxReactBSMultiSelect';
 
 // Be sure to include styles at some point, probably during your bootstrapping
-import 'react-select/dist/react-select.css';
+// import 'react-select/dist/react-select.css';
 
 import ResizeAware from 'react-resize-aware';
 import PontusComponent from "./PontusComponent";
