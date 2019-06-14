@@ -1,7 +1,4 @@
-import React from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelTrackSimplePVGrid from './NavPanelTrackSimplePVGrid';
 // import PVWorldMap from './PVWorldMap';

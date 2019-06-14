@@ -1,14 +1,10 @@
-
-import React from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelChildrenPVGrid from './NavPanelChildrenPVGrid';
 import NavPanelChildrenPVBarChartChildrenAges from './NavPanelChildrenPVBarChartChildrenAges';
 import NavPanelChildrenPVDataGraph from './NavPanelChildrenPVDataGraph';
-import PontusComponent from "./PontusComponent";
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
+
 // import UserSearch from './UserSearch';
 
 
@@ -17,8 +13,8 @@ class NavPanelChildren extends PVGoldenLayoutComponent
   constructor(props)
   {
     super(props);
-    this.stateVar = 'LGPD-'+'savedStateNavPanelChildren';
-  
+    this.stateVar = 'LGPD-savedStateNavPanelChildren';
+    
     this.config = {
       settings: {
         hasHeaders: true,
@@ -49,12 +45,12 @@ class NavPanelChildren extends PVGoldenLayoutComponent
               type: 'react-component',
               component: 'data-grid'
             }
-            ,{
+            , {
               title: 'Idades de criancas',
               type: 'react-component',
               component: 'children-ages'
             }
-            ,{
+            , {
               title: 'Histograma de idades',
               type: 'react-component',
               component: 'children-data-graph'
@@ -66,6 +62,7 @@ class NavPanelChildren extends PVGoldenLayoutComponent
     };
     
   }
+  
   registerComponents = (instance) =>
   {
     this.registerComponentsPreamble(instance);
@@ -76,4 +73,5 @@ class NavPanelChildren extends PVGoldenLayoutComponent
   }
   
 }
+
 export default NavPanelChildren;

@@ -1,5 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
+import NavPanelPrivacyNoticesPVGrid from "./NavPanelPrivacyNoticesPVGrid";
+import NavPanelPrivacyNoticesDataGraph from "./NavPanelPrivacyNoticesDataGraph";
 
 // import PVTemplateEditor from './PVTemplateEditor';
 
@@ -58,8 +60,8 @@ class NavPanelPrivacyNotices extends PVGoldenLayoutComponent
   {
     this.registerComponentsPreamble(instance);
     
-    this.instance.registerComponent('data-grid', NavPanelPrivacyImpactAssessmentPVGrid);
-    this.instance.registerComponent('data-graph', NavPanelPrivacyImpactAssessmentDataGraph);
+    this.instance.registerComponent('data-grid', NavPanelPrivacyNoticesPVGrid);
+    this.instance.registerComponent('data-graph', NavPanelPrivacyNoticesDataGraph);
     
   };
 }

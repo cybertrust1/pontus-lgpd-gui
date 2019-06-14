@@ -1,23 +1,20 @@
-
-import React  from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelDataBreachPVGridDataBreachEvents from './NavPanelDataBreachPVGridDataBreachEvents';
 import NavPanelDataBreachPVDataGraphDataBreached from './NavPanelDataBreachPVDataGraphDataBreached';
 import NavPanelDataBreachPVDataGraphInfrastructure from './NavPanelDataBreachPVDataGraphInfrastructure';
-import PontusComponent from "./PontusComponent";
+import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
+
 // import PVTemplateEditor from './PVTemplateEditor';
 
 
-class NavPanelDataBreaches extends PontusComponent
+class NavPanelDataBreaches extends PVGoldenLayoutComponent
 {
   constructor(props)
   {
     super(props);
     this.stateVar = 'LGPD-savedStateNavPanelDataBreaches';
-  
+    
     this.config = {
       settings: {
         hasHeaders: true,
@@ -53,12 +50,12 @@ class NavPanelDataBreaches extends PontusComponent
             //   type: 'react-component',
             //   component: 'data-search'
             // }
-            ,{
-              title:   'Gráfico de Violação de Dados',
+            , {
+              title: 'Gráfico de Violação de Dados',
               type: 'react-component',
               component: 'data-breach-graph'
             }
-            ,{
+            , {
               title: 'Gráfico de Infraestrutura',
               type: 'react-component',
               component: 'data-graph'
@@ -81,4 +78,5 @@ class NavPanelDataBreaches extends PontusComponent
     
   };
 }
+
 export default NavPanelDataBreaches;

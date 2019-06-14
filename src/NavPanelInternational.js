@@ -1,14 +1,9 @@
-
-import React  from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelInternationalPVGridRegulators from './NavPanelInternationalPVGridRegulators';
 import NavPanelInternationalPVDataGraph from './NavPanelInternationalPVDataGraph';
 // import PVTemplateEditor from './PVTemplateEditor';
 import PVWorldMap from "./PVWorldMap";
-import PontusComponent from "./PontusComponent";
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
 
@@ -18,7 +13,7 @@ class NavPanelInternational extends PVGoldenLayoutComponent
   {
     super(props);
     this.stateVar = 'LGPD-savedStateNavPanelInternational';
-  
+    
     this.config = {
       settings: {
         hasHeaders: true,
@@ -49,12 +44,12 @@ class NavPanelInternational extends PVGoldenLayoutComponent
               type: 'react-component',
               component: 'data-grid'
             }
-            ,{
+            , {
               title: 'Mapa Mundial',
               type: 'react-component',
               component: 'world-map'
             }
-            ,{
+            , {
               title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
@@ -66,6 +61,7 @@ class NavPanelInternational extends PVGoldenLayoutComponent
     };
     
   }
+  
   registerComponents = (instance) =>
   {
     this.registerComponentsPreamble(instance);
@@ -79,4 +75,5 @@ class NavPanelInternational extends PVGoldenLayoutComponent
   };
   
 }
+
 export default NavPanelInternational;

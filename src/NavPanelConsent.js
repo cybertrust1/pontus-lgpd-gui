@@ -1,14 +1,9 @@
-
-import React  from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelConsentPVGridPrivacyNotices from './NavPanelConsentPVGridPrivacyNotices';
 import NavPanelConsentPVGridEventConsent from './NavPanelConsentPVGridEventConsent';
 import NavPanelConsentDataGraph from './NavPanelConsentDataGraph';
 import NavPanelConsentPVDoughnutChartConsentStatus from './NavPanelConsentPVDoughnutChartConsentStatus';
-import PontusComponent from "./PontusComponent";
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
 
@@ -48,17 +43,17 @@ class NavPanelConsent extends PVGoldenLayoutComponent
               type: 'react-component',
               component: 'data-grid-privacy-notices'
             }
-            ,{
+            , {
               title: 'Consentimentos',
               type: 'react-component',
               component: 'data-grid-consent-events'
             }
-            ,{
+            , {
               title: 'Gráfico de Consentimentos (Avisos de Privacidade)',
               type: 'react-component',
               component: 'consent-chart'
             }
-            ,{
+            , {
               title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
@@ -83,4 +78,5 @@ class NavPanelConsent extends PVGoldenLayoutComponent
   };
   
 }
+
 export default NavPanelConsent;

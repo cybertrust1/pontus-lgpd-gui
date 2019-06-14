@@ -123,8 +123,11 @@ class FormBuilderRaw extends Component
   setElement = (element) =>
   {
     
-    this.element = element;
-    this.initializeBuilder();
+    if (element){
+      this.element = element;
+      this.initializeBuilder();
+  
+    }
     
     
   };

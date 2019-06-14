@@ -1,18 +1,17 @@
-import React from 'react';
 
 import PVGridEmployees from './PVGridEmployees';
 import PVGridAwarenessCampaign from './PVGridAwarenessCampaign';
 
 
 import PVDoughnutChart from './PVDoughnutChart';
-import PontusComponent from "./PontusComponent";
+import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
-class NavPanelAwareness extends PontusComponent
+class NavPanelAwareness extends PVGoldenLayoutComponent
 {
   constructor(props)
   {
     super(props);
-    this.stateVar = 'LGPD-' + 'savedStateNavPanelAwareness';
+    this.stateVar = 'LGPD-savedStateNavPanelAwareness';
     
     this.config = {
       settings: {

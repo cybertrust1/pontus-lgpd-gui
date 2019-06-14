@@ -1,7 +1,4 @@
-import React from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelPrivacyImpactAssessmentPVGrid from './NavPanelPrivacyImpactAssessmentPVGrid';
 import NavPanelPrivacyImpactAssessmentDataGraph from './NavPanelPrivacyImpactAssessmentDataGraph';
@@ -64,12 +61,12 @@ class NavPanelPrivacyImpactAssessment extends PVGoldenLayoutComponent
     
     // this.instance.registerComponent('data-grid', NavPanelInformationYouHoldPVGrid);
     // this.instance.registerComponent('compliance-email', PVTimeline);
-    this.instance.registerComponent('data-grid', NavPanelLawfulBasisPVGrid);
-    this.instance.registerComponent('data-graph', NavPanelLawfulBasisDataGraph);
+    this.instance.registerComponent('data-grid', NavPanelPrivacyImpactAssessmentPVGrid);
+    this.instance.registerComponent('data-graph', NavPanelPrivacyImpactAssessmentDataGraph);
     
   };
   
- 
+  
 }
 
 export default NavPanelPrivacyImpactAssessment;

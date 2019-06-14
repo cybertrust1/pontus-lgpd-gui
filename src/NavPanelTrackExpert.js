@@ -1,13 +1,8 @@
-
-import React from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
+// import React from 'react';
 
 import NavPanelTrackExpertPVDataGraph from './NavPanelTrackExpertPVDataGraph';
 import NavPanelTrackExpertPVAceGremlinEditor from "./NavPanelTrackExpertPVAceGremlinEditor";
 import NavPanelTrackExpertPVAceGremlinJSONQueryResults from "./NavPanelTrackExpertPVAceGremlinJSONQueryResults";
-import PontusComponent from "./PontusComponent";
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
 
@@ -17,7 +12,7 @@ class NavPanelTrackExpert extends PVGoldenLayoutComponent
   {
     super(props);
     this.stateVar = 'LGPD-savedStateNavPanelTrackExpert';
-  
+    
     this.config = {
       settings: {
         hasHeaders: true,
@@ -59,22 +54,24 @@ class NavPanelTrackExpert extends PVGoldenLayoutComponent
               type: 'react-component',
               component: 'data-graph'
             }
-            
+          
           ]
         }
       ]
       
     };
     
-    this.state = {height: props.height , width: props.width};
+    this.state = {height: props.height, width: props.width};
     
   }
   
-  shouldComponentUpdate(){
+  shouldComponentUpdate()
+  {
     return false;
   }
   
-  deselect= ()=>{
+  deselect = () =>
+  {
   
   };
   
@@ -89,4 +86,5 @@ class NavPanelTrackExpert extends PVGoldenLayoutComponent
     
   };
 }
+
 export default NavPanelTrackExpert;

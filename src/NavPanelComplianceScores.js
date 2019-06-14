@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 // import UserSearch from './';
 import NavPanelComplianceScoresMainScore from './NavPanelComplianceScoresMainScore';
 import NavPanelComplianceScoresDetailedScores from './NavPanelComplianceScoresDetailedScores';
@@ -12,7 +12,7 @@ class NavPanelComplianceScores extends PVGoldenLayoutComponent
   {
     super(props);
     
-    this.stateVar = 'LGPD-'+'savedStateNavPanelComplianceScores';
+    this.stateVar = 'LGPD-savedStateNavPanelComplianceScores';
     
     this.config = {
       settings: {

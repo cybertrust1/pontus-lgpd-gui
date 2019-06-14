@@ -55,6 +55,11 @@ class PVGoldenLayoutComponent extends PontusComponent
   
   registerComponents = (instance) =>
   {
+    this.registerComponentsPreamble(instance);
+  };
+  
+  registerComponentsPreamble = (instance) =>
+  {
     this.instance = instance;
     
     this.instance.on('tabCreated', function (tab)
