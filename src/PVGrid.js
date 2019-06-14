@@ -142,7 +142,7 @@ class PVGrid extends PontusComponent
       this.grid.onAddNewRow.subscribe(this.onNewRowAdded);
       this.grid.onCellChange.subscribe(this.onCellChanged);
       
-  
+      
       
       // if (this.props.colSettings !== null){
       //   this.setColumnSettings(this.props.colSettings)
@@ -190,7 +190,7 @@ class PVGrid extends PontusComponent
       },
       from: from,
       to: to,
-      sortBy: sortcol,
+      sortCol: sortcol?sortcol.id: '',
       sortDir: ((sortdir > 0) ? "+asc" : "+desc")
     }
   };
@@ -497,10 +497,10 @@ class PVGrid extends PontusComponent
   };
   
   onSuccessAddRowProxy = (req) =>{
-
+  
   };
   onErrorAddRow = (thrown, req) =>{
-
+  
   };
   
   getAddRowQuery = (req) => {
@@ -520,6 +520,8 @@ class PVGrid extends PontusComponent
     this.sortcol = column;
     this.sortdir = dir;
     this.clear();
+    this.ensureData(0, this.PAGESIZE);
+    
   };
   setSearch = (str) =>
   {
@@ -576,22 +578,22 @@ class PVGrid extends PontusComponent
     // this.props.glEventHub.off(this.namespace + '-pvgrid-on-search-changed', this.setSearch);
     // this.props.glEventHub.off(this.namespace + '-pvgrid-on-col-settings-changed', this.setColumnSettings);
     // this.props.glEventHub.off(this.namespace + '-pvgrid-on-extra-search-changed', this.setExtraSearch);
-  
+    
     this.props.glEventHub.off(this.namespace + '-pvgrid-on-search-changed', this.setSearch);
     this.props.glEventHub.off(this.namespace + '-pvgrid-on-search-exact-changed', this.setSearchExact);
     this.props.glEventHub.off(this.namespace + '-pvgrid-on-col-settings-changed', this.setColumnSettings);
     this.props.glEventHub.off(this.namespace + '-pvgrid-on-extra-search-changed', this.setExtraSearch);
-  
+    
     // this.loader.onDataLoaded.subscribe(this.onDataLoadedCb);
     this.grid.onClick.unsubscribe(this.onClick); //({ row: number, cell: number })
     this.grid.onViewportChanged.unsubscribe(this.onViewportChanged);
     this.grid.onSort.unsubscribe(this.onSort);
     this.grid.onAddNewRow.unsubscribe(this.onNewRowAdded);
     this.grid.onCellChange.unsubscribe(this.onCellChanged);
-  
-  
-  
-  
+    
+    
+    
+    
   }
   
   

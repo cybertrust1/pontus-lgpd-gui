@@ -1,16 +1,15 @@
 import React from 'react';
 // import Box, {Center as BoxCenter} from 'react-layout-components';
-import GremlinComboBox from './GremlinComboBox';
-import {Flex, Box} from 'reflexbox'
-import SearchBar from 'react-search-bar';
+import PVGremlinComboBox from './PVGremlinComboBox';
+import {Box, Flex} from 'reflexbox'
+import SearchBar from '@opuscapita/react-searchbar';
+import ResizeAware from 'react-resize-aware';
+import PontusComponent from "./PontusComponent";
 
 // import GremlinComboBoxReactBSMultiSelect from './GremlinComboBoxReactBSMultiSelect';
 
 // Be sure to include styles at some point, probably during your bootstrapping
 // import 'react-select/dist/react-select.css';
-
-import ResizeAware from 'react-resize-aware';
-import PontusComponent from "./PontusComponent";
 
 
 class UserSearch extends PontusComponent
@@ -53,9 +52,9 @@ class UserSearch extends PontusComponent
     this.vertexLabels = val;
     this.nodePropertyNamesReactSelect.getOptions({labels: val});
     this.props.glEventHub.emit(this.namespace + '-pvgrid-on-extra-search-changed', val);
-  
+    
   };
-
+  
   setObjVertexLabels = (reactSelect) =>
   {
     this.vertexLabelsReactSelect = reactSelect;
@@ -70,19 +69,24 @@ class UserSearch extends PontusComponent
     //
     //   {id: "street", name: "Street", field: "street", sortable: true}
     // ];
-
+    
     let colSettings = [];
     
     this.propsSelected = [];
     
-    for (let i = 0,  ilen = val.length; i < ilen; i++){
-      colSettings.push({id: val[i].value, name: val[i].label, field: val[i].value, sortable: true});
-      this.propsSelected.push(val[i].value);
+    if (val)
+    {
+      for (let i = 0, ilen = val.length; i < ilen; i++)
+      {
+        colSettings.push({id: val[i].value, name: val[i].label, field: val[i].value, sortable: true});
+        this.propsSelected.push(val[i].value);
+      }
+      
     }
     
     // for (val)
-  
-  
+    
+    
     this.props.glEventHub.emit(this.namespace + '-pvgrid-on-col-settings-changed', colSettings);
   };
   
@@ -93,22 +97,44 @@ class UserSearch extends PontusComponent
   
   handleSearch = (searchStr) =>
   {
+    
+    if (searchStr)
+    {
+      this.props.glEventHub.emit(this.namespace + '-pvgrid-on-search-changed', searchStr);
+      
+    }
+    else
+    {
+      this.props.glEventHub.emit(this.namespace + '-pvgrid-on-search-changed', "");
+      
+    }
+    // this.props.glEventHub.emit('pvgrid-on-search-changed', {searchStr : searchStr, propsSelected:
+    // this.propsSelected, vertexLabels: this.vertexLabels});
+    
+    
+  };
+  handleClear = () =>
+  {
+    
+    this.props.glEventHub.emit(this.namespace + '-pvgrid-on-search-changed', "");
+    
+    
+    // this.props.glEventHub.emit('pvgrid-on-search-changed', {searchStr : searchStr, propsSelected:
+    // this.propsSelected, vertexLabels: this.vertexLabels});
+    
+    
+  };
   
-    // this.props.glEventHub.emit('pvgrid-on-search-changed', {searchStr : searchStr, propsSelected: this.propsSelected, vertexLabels: this.vertexLabels});
-    this.props.glEventHub.emit(this.namespace + '-pvgrid-on-search-changed', searchStr);
-  
-  
-  }
   
   onCheckedFuzzy = (checked) =>
   {
     this.setState({checkedFuzzy: !this.state.checkedFuzzy});
-    // this.props.glEventHub.emit('pvgrid-on-search-changed', {searchStr : searchStr, propsSelected: this.propsSelected, vertexLabels: this.vertexLabels});
-    this.props.glEventHub.emit(this.namespace+'-pvgrid-on-search-exact-changed', this.state.checkedFuzzy);
-  
-  
-  }
-  
+    // this.props.glEventHub.emit('pvgrid-on-search-changed', {searchStr : searchStr, propsSelected:
+    // this.propsSelected, vertexLabels: this.vertexLabels});
+    this.props.glEventHub.emit(this.namespace + '-pvgrid-on-search-exact-changed', this.state.checkedFuzzy);
+    
+    
+  };
   
   
   componentDidMount()
@@ -120,48 +146,11 @@ class UserSearch extends PontusComponent
   
   componentWillUnmount()
   {
-    this.props.glEventHub.off(this.namespace+'-pvgrid-on-data-loaded', this.onDataLoadedCb);
+    this.props.glEventHub.off(this.namespace + '-pvgrid-on-data-loaded', this.onDataLoadedCb);
   }
-  
   
   render()
   {
-    /*
-     <Flex p={1}  w={1} align='center' mr ={1}>
- 
-     <Box px={2} w={1 / 8}>
-     <div className="userdetails">Relationships</div>
-     </Box>
- 
-     <Box px={2} w={1 / 4}>
-     <GremlinComboBox
-     name="edgge-types"
-     multi={true}
-     onChange={this.onChangeEdgeLabels}
-     onError={this.onError}
-     ref={this.setObjEdgeLabels}
-     url={"/gateway/sandbox/pvgdpr_server/home/edge_labels"}
-     />
-     </Box>
-     </Flex>
-     
-     <GremlinComboBox
-     name="node-types"
-     multi={true}
-     onChange={this.onChange}
-     onError={this.onError}
-     ref={this.setObj}
-     url={"/gateway/sandbox/pvgdpr_server/home/vertex_labels"}
-     />
-     
-     <GremlinComboBoxReactBSMultiSelect
-     multi={true}
-     onChange={this.onChange}
-     onError={this.onError}
-     ref={this.setObj}
-     url={"/gateway/sandbox/pvgdpr_server/home/vertex_labels"}
-     />
-     */
     return (
       <ResizeAware
         style={{width: '100%', height: '100%'}}
@@ -171,11 +160,11 @@ class UserSearch extends PontusComponent
         <Flex w={1} wrap={true}>
           <Flex p={1} w={1} align='center' mr ={1}>
             <Box px={2} w={1 / 4}>
-              <div className="userdetails">Data Types</div>
+              <div className="userdetails">Tipos de Dados</div>
             </Box>
             
-            <Box px={2} w={1 / 2}>
-              <GremlinComboBox
+            <Box px={2} w={1 / 2} style={{zIndex: 200}}>
+              <PVGremlinComboBox
                 namespace = {this.namespace}
                 name="node-types"
                 multi={false}
@@ -183,20 +172,21 @@ class UserSearch extends PontusComponent
                 onError={this.onError}
                 ref={this.setObjVertexLabels}
                 url={PontusComponent.getRestVertexLabelsURL(this.props)}
+                
               />
             </Box>
           </Flex>
           
           <Flex p={1} w={1} align='center' mr ={1}>
             <Box px={2} w={1 / 4}>
-              <div className="userdetails">Data Properties</div>
+              <div className="userdetails">Colunas</div>
             </Box>
-    
-            <Box px={2} w={1 / 2}>
-              <GremlinComboBox
+            
+            <Box px={2} w={1 / 2} style={{zIndex: 199}}>
+              <PVGremlinComboBox
                 name="node-property-types"
                 namespace = {this.namespace}
-
+                
                 multi={true}
                 onChange={this.onChangeNodePropertyNames}
                 onError={this.onError}
@@ -205,39 +195,32 @@ class UserSearch extends PontusComponent
               />
             </Box>
           </Flex>
-  
+          
           <Flex p={1} w={1} align='center' mr ={1}>
             <Box px={2} w={1 / 4}>
-              <div className="userdetails">Full Name (Sounds Like)</div>
-              {/*<label>*/}
-                {/*<input type="checkbox"*/}
-                       {/*name="SoundsLike"*/}
-                       {/*checked={this.state.checkedFuzzy}*/}
-                       {/*onClick={this.onCheckedFuzzy} />*/}
-                {/*Sounds Like*/}
-              {/*</label>*/}
+              <div className="userdetails">Search</div>
             </Box>
-    
+            
             <Box px={2} w={1 / 2}>
               <SearchBar
                 autoFocus
-                // renderClearButton
-
+                renderClearButton
+                
                 renderSearchButton
-                placeholder="Search Properties..."
+                placeholder="Pesquisa..."
                 onChange={()=>{}}
-                onClear={()=>{}}
+                onClear={this.handleClear}
                 onSelection={()=>{}}
                 onSearch={this.handleSearch}
                 suggestions={[]}
                 // suggestionRenderer={this.suggestionRenderer}
                 // styles={styles}
-
+              
               />
             </Box>
           </Flex>
-          
-
+        
+        
         </Flex>
       
       
