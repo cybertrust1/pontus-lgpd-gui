@@ -1,11 +1,8 @@
 import React from 'react';
-import ResizeAware from 'react-resize-aware';
-
-import GoldenLayout from 'golden-layout';
 
 import NavPanelDataProtnOfficerPVGrid from './NavPanelDataProtnOfficerPVGrid';
 import NavPanelDataProtnOfficerPVDataGraph from './NavPanelDataProtnOfficerPVDataGraph';
-import PontusComponent from "./PontusComponent";
+import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
 
 
 class NavPanelDataProtnOfficer extends PVGoldenLayoutComponent
@@ -43,7 +40,7 @@ class NavPanelDataProtnOfficer extends PVGoldenLayoutComponent
               title: 'Dados',
               type: 'react-component',
               component: 'data-grid'
-            },  {
+            }, {
               title: 'Gráfico de Dados',
               type: 'react-component',
               component: 'data-graph'
@@ -55,6 +52,7 @@ class NavPanelDataProtnOfficer extends PVGoldenLayoutComponent
     };
     
   }
+  
   registerComponents = (instance) =>
   {
     this.registerComponentsPreamble(instance);
