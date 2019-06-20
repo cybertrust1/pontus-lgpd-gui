@@ -101,12 +101,21 @@ class PVAceGremlinJSONQueryResults extends PontusComponent
   {
     // let eventHub = this.props.glEventHub;
     //
-    
-    let data = this.state.value;
-    if (typeof this.state.value === "object")
+  
+    let data = (this.state.value);
+    if (data.response){
+      data = data.response;
+    }
+    if (data.data){
+      data = data.data;
+    }
+    if (data.result){
+      data = data.result;
+    }
+    if (typeof data === "object")
     {
       data = JSON.stringify(data, null, 2);
-      
+    
     }
     data = data.replace(/\\n/g, '\n');
     data = data.replace(/\\t/g, '\t');
