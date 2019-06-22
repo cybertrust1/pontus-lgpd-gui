@@ -4,6 +4,7 @@ import React from 'react';
 import axios from "axios";
 import {Doughnut} from 'react-chartjs-2';
 import PontusComponent from "./PontusComponent";
+
 // import PVDatamaps from './PVDatamaps';
 
 
@@ -22,7 +23,7 @@ class PVDoughnutChart extends PontusComponent
       , height: 500
       , data: {
         labels: []
-       ,datasets: [
+        , datasets: [
           {
             data: []
             // ,backgroundColor: []
@@ -31,23 +32,24 @@ class PVDoughnutChart extends PontusComponent
         ]
       }
     };
-  
+    
     this.errorCounter = 0;
     this.index = -1;
     // this.datamaps = new PVDatamaps(props);
-  
+    
     // this.url = props.url || "/gateway/sandbox/pvgdpr_graph";
     this.url = PontusComponent.getGraphURL(this.props);
-  
+    
   }
   
   
   setObj = (obj) =>
   {
     this.obj = obj;
-    if (this.obj && this.obj.chartInstance && this.obj.chartInstance.canvas){
-      this.obj.chartInstance.canvas.ondblclick= this.ensureData;
-    
+    if (this.obj && this.obj.chartInstance && this.obj.chartInstance.canvas)
+    {
+      this.obj.chartInstance.canvas.ondblclick = this.ensureData;
+      
     }
   };
   
@@ -64,6 +66,7 @@ class PVDoughnutChart extends PontusComponent
     
     
   }
+  
   componentWillUnmount()
   {
     this.props.glEventHub.off('PVGridAwarenessCampaign-pvgrid-on-click-row', this.onClickedPVGridAwarenessCampaign);
@@ -80,14 +83,12 @@ class PVDoughnutChart extends PontusComponent
   }
   
   
-  
-  
   getQuery = (id) =>
   {
     
     return {
       gremlin: "g.V((pg_awarenessId))" +
-      ".in().as('events').groupCount().by('Event.Training.Status')"
+        ".in().as('events').groupCount().by('Event.Training.Status')"
       , bindings: {
         pg_awarenessId: id
       }
@@ -147,19 +148,21 @@ class PVDoughnutChart extends PontusComponent
   };
   onError = (err) =>
   {
-    if (this.errorCounter > 5){
+    if (this.errorCounter > 5)
+    {
       console.error("error loading data:" + err);
-  
+      
     }
-    else{
+    else
+    {
       this.ensureData(this.index);
     }
-    this.errorCounter ++;
+    this.errorCounter++;
   };
   
   onSuccess = (resp) =>
   {
-  
+    
     this.errorCounter = 0;
     // sampleRet = {
     //   "requestId": "57b7d203-67be-4698-9382-c98640711a3a"
@@ -182,18 +185,18 @@ class PVDoughnutChart extends PontusComponent
     //     }, "meta": {"@type": "g:Map", "@value": []}
     //   }
     // };
-  
-  
-  
-    try{
-     
+    
+    
+    try
+    {
+      
       var data = {
         labels: []
-       ,datasets: [
+        , datasets: [
           {
             data: []
-            ,backgroundColor: []
-            ,hoverBackgroundColor: []
+            , backgroundColor: []
+            , hoverBackgroundColor: []
           }
         ]
       }
@@ -201,55 +204,54 @@ class PVDoughnutChart extends PontusComponent
       if (resp.status === 200)
       {
         var items = resp.data.result.data['@value'][0]['@value'];
-      
         
-      
         
         var counter = 0;
-        for (var i = 0, ilen = items.length; i < ilen; i+=2){
-            let label = items[i];
-            let datasetData = items[i+1]['@value'];
-            data.labels[counter] = label;
-            data.datasets[0].data[counter] = datasetData;
+        for (var i = 0, ilen = items.length; i < ilen; i += 2)
+        {
+          let label = items[i];
+          let datasetData = items[i + 1]['@value'];
+          data.labels[counter] = label;
+          data.datasets[0].data[counter] = datasetData;
+          
+          switch (label)
+          {
+            case "Passed":
+              data.datasets[0].backgroundColor[counter] = '#00ff00'
+              data.datasets[0].hoverBackgroundColor[counter] = '#00ff00'
+              break;
+            case "Link Sent":
+              data.datasets[0].backgroundColor[counter] = '#ffff00'
+              data.datasets[0].hoverBackgroundColor[counter] = '#ffff00'
+              
+              break;
+            case "Reminder Sent":
+              data.datasets[0].backgroundColor[counter] = '#ff8800'
+              data.datasets[0].hoverBackgroundColor[counter] = '#ff8800'
+              
+              break;
+            case "Failed":
+              data.datasets[0].backgroundColor[counter] = '#ff0000'
+              data.datasets[0].hoverBackgroundColor[counter] = '#ff0000'
+              
+              break;
             
-            switch (label) {
-              case "Passed":
-                data.datasets[0].backgroundColor[counter] = '#00ff00'
-                data.datasets[0].hoverBackgroundColor[counter] = '#00ff00'
-                break;
-              case "Link Sent":
-                data.datasets[0].backgroundColor[counter] = '#ffff00'
-                data.datasets[0].hoverBackgroundColor[counter] = '#ffff00'
-  
-                break;
-              case "Reminder Sent":
-                data.datasets[0].backgroundColor[counter] = '#ff8800'
-                data.datasets[0].hoverBackgroundColor[counter] = '#ff8800'
-  
-                break;
-              case "Failed":
-                data.datasets[0].backgroundColor[counter] = '#ff0000'
-                data.datasets[0].hoverBackgroundColor[counter] = '#ff0000'
-  
-                break;
-                
-              case "Second  Reminder":
-                data.datasets[0].backgroundColor[counter] = '#ff4400'
-                data.datasets[0].hoverBackgroundColor[counter] = '#ff4400'
-  
-                break;
-                
-              default:
-                data.datasets[0].backgroundColor[counter] = '#0000ff'
-                data.datasets[0].hoverBackgroundColor[counter] = '#0000ff'
-  
-  
-  
-            }
-            counter ++;
-        
+            case "Second  Reminder":
+              data.datasets[0].backgroundColor[counter] = '#ff4400'
+              data.datasets[0].hoverBackgroundColor[counter] = '#ff4400'
+              
+              break;
+            
+            default:
+              data.datasets[0].backgroundColor[counter] = '#0000ff'
+              data.datasets[0].hoverBackgroundColor[counter] = '#0000ff'
+            
+            
+          }
+          counter++;
+          
         }
-  
+        
         // let colorScale =  this.datamaps.getColorScale(0, items.length - 1);
         //
         // let datasetData = data.datasets[0].data;
@@ -258,16 +260,16 @@ class PVDoughnutChart extends PontusComponent
         //   data.datasets[0].hoverBackgroundColor[i] = colorScale(i);
         //
         // }
-  
+        
       }
-  
-  
-    
+      
+      
       this.setState({data: data})
       
-    
+      
     }
-    catch (e){
+    catch (e)
+    {
       // e;
     }
     
@@ -290,7 +292,7 @@ class PVDoughnutChart extends PontusComponent
   
   render()
   {
-   
+    
     
     return (
       
@@ -302,16 +304,23 @@ class PVDoughnutChart extends PontusComponent
         redraw={true}
         onDoubleClick={this.ensureData}
         options={{
+  
           responsive: true,
           legend: {
-            position: "right"
-          }}}
+            position: "right",
+            labels: {
+              fontColor: 'white'
+            }
+          }
+  
+        }}
       />
     
     
-    );
+    )
+      ;
     
- 
+    
   }
 }
 
