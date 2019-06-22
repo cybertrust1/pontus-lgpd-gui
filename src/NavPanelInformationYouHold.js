@@ -63,11 +63,11 @@ class NavPanelInformationYouHold extends PVGoldenLayoutComponent
               type: 'react-component',
               component: 'data-types-doughnut'
             }
-            // , {
-            //   title: 'Titulares',
-            //   type: 'react-component',
-            //   component: 'data-grid'
-            // }
+            , {
+              title: 'Titulares',
+              type: 'react-component',
+              component: 'data-grid'
+            }
             , {
               title: 'Registros Inigualáveis',
               type: 'react-component',
