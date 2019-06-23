@@ -566,9 +566,15 @@ class PVGrid extends PontusComponent
   
   setColumnSettings = (colSettings) =>
   {
+    if (colSettings){
+      for (let i = 0; i < colSettings.length; i++){
+         let colSetting = colSettings[i];
+         colSetting.name = PontusComponent.t(colSetting.name);
+      }
+      this.grid.setColumns(colSettings);
+      this.setColumns(colSettings);
+    }
     
-    this.grid.setColumns(colSettings);
-    this.setColumns(colSettings);
   };
   
   

@@ -146,7 +146,7 @@ class PVAceGremlinJSONQueryResults extends PontusComponent
                 style={{border:0, background:'rgb(69,69,69)'}}
                 size={'small'}
               >
-                Graph
+                { PontusComponent.t('Graph')}
               </Button>
         
             </Menu>

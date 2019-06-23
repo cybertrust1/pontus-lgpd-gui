@@ -204,7 +204,7 @@ class PVAceGremlinEditor extends PontusComponent
                 style={{border: 0, background: 'rgb(69,69,69)'}}
                 size={'small'}
               >
-                Send Query
+                { PontusComponent.t('Send Query') }
               </Button>
             
             
