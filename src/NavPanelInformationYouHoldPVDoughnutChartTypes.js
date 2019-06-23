@@ -5,6 +5,7 @@ import {Doughnut} from 'react-chartjs-2';
 import PontusComponent from "./PontusComponent";
 // import axios from 'axios';
 
+import i18next  from './i18n';
 
 /***************************
  * UserList Component
@@ -193,7 +194,7 @@ class NavPanelInformationYouHoldPVDoughnutChartTypes extends PontusComponent
         
         for (let prop in items) {
           
-          data.labels[counter] = prop;
+          data.labels[counter] = i18next.t(prop);
           data.datasets[0].data[counter] = items[prop];
         
           data.datasets[0].backgroundColor[counter] = this.getColorBasedOnLabel(prop);

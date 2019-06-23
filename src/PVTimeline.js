@@ -3,6 +3,7 @@ import ResizeAware from 'react-resize-aware';
 // import '../node_modules/vis/dist/vis.css';
 // import '../node_modules/vis/dist/vis-timeline-graph2d.min.css';
 import './vis-timeline.css';
+import i18next from './i18n';
 
 import * as Vis from 'vis';
 
@@ -32,12 +33,12 @@ class PVTimeline extends PontusComponent
     let itemCount = 1;
     
     // create a data set with groups
-    let names = ['CLICK ON THE GRID TO GET THE RELATED ITEMS TIME SERIES'];
+    let names = [i18next.t('CLICK ON THE GRID TO GET THE RELATED ITEMS TIME SERIES')];
     this.groups = new Vis.DataSet();
     
     for (let g = 0; g < groupCount; g++)
     {
-      this.groups.add({id: g, content: names[g]});
+      this.groups.add({id: g, content: i18next.t(names[g])});
     }
     let start = new Date(Date.now() - 3600000);
     let end = new Date(Date.now() + 3600000);
@@ -51,7 +52,7 @@ class PVTimeline extends PontusComponent
         id: i,
         group: group,
         content: 'item ' + i + ' ' +
-          '<span style="color:#97B0F8;">(' + names[group] + ')</span>',
+          '<span style="color:#97B0F8;">(' + i18next.t(names[group]) + ')</span>',
         start: start,
         end: end,
         type: 'box'
@@ -343,8 +344,9 @@ class PVTimeline extends PontusComponent
   componentWillUnmount()
   {
     this.props.glEventHub.off(this.subscription, this.selectData);
-    
+  
     this.timeline.off('rangechange', this.onRangeChange);
+    this.timeline.off('select', this.onSelect);
     
   }
   

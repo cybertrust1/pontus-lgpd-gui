@@ -1,4 +1,8 @@
 import React from 'react';
+// import i18next from 'i18next';
+// import { useTranslation } from 'react-i18next';
+import i18next  from './i18n';
+// const { t, i18n } = useTranslation();
 
 class PontusComponent extends React.Component
 {
@@ -7,6 +11,7 @@ class PontusComponent extends React.Component
   {
     super(props);
     this.url = PontusComponent.getGraphURL(props);
+    this.t = i18next.t;
   }
   
   static getGraphURL(props)
