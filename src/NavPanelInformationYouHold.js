@@ -4,6 +4,7 @@ import NavPanelInformationYouHoldPVDoughnutChartTypes from './NavPanelInformatio
 import NavPanelInformationYouHoldPVGridEventIngestion from './NavPanelInformationYouHoldPVGridEventIngestion';
 import NavPanelInformationYouHoldIngestionTimeline from './NavPanelInformationYouHoldIngestionTimeline';
 import PVGoldenLayoutComponent from "./PVGoldenLayoutComponent";
+import NavPanelInformationYouHoldPVGrid from "./NavPanelInformationYouHoldPVGrid";
 
 
 class NavPanelInformationYouHold extends PVGoldenLayoutComponent
