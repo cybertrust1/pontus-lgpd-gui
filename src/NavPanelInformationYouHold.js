@@ -94,7 +94,7 @@ class NavPanelInformationYouHold extends PVGoldenLayoutComponent
   {
     this.registerComponentsPreamble(instance);
     
-    // this.instance.registerComponent('data-grid', NavPanelInformationYouHoldPVGrid);
+    this.instance.registerComponent('data-grid', NavPanelInformationYouHoldPVGrid);
     // this.instance.registerComponent('compliance-email', PVTimeline);
     this.instance.registerComponent('data-graph', NavPanelInformationYouHoldPVDataGraph);
     this.instance.registerComponent('data-types-doughnut', NavPanelInformationYouHoldPVDoughnutChartTypes);
