@@ -267,10 +267,17 @@ class NavPanelConsentPVDoughnutChartConsentStatus extends PontusComponent
         redraw={true}
         onDoubleClick={this.ensureData}
         options={{
+  
           responsive: true,
           legend: {
-            position: "right"
-          }}}
+            position: "right",
+            labels: {
+              fontColor: 'white'
+            }
+          }
+  
+        }}
+
       />
     
     

@@ -211,7 +211,7 @@ class PVDoughnutChart extends PontusComponent
         {
           let label = items[i];
           let datasetData = items[i + 1]['@value'];
-          data.labels[counter] = label;
+          data.labels[counter] = PontusComponent.t(label);
           data.datasets[0].data[counter] = datasetData;
           
           switch (label)
@@ -316,9 +316,7 @@ class PVDoughnutChart extends PontusComponent
         }}
       />
     
-    
-    )
-      ;
+    );
     
     
   }
