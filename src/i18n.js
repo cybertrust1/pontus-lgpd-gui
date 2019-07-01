@@ -495,6 +495,7 @@ const resources = {
       , "Has Form Ingestion Event": "Tem Evento de Ingestão de Formulário"
       , "Has Ingestion Event": "Tem Evento de Ingestão"
       , "Has Ingress Peering": "Tem Ingress Peering"
+      , "Has Lawful Basis On": "Tem Base Legal"
       , "Has Privacy Notice": "Tem Aviso de Privacidade"
       , "Has Privacy Impact Assessment": "Tem Availação do Impacto de Privacidade"
       , "Has Policy": "Tem"
