@@ -133,7 +133,7 @@ class ComplyPanel extends Component
             <Icon icon={ic_multiline_chart}/>)}
           {this.renderItemRaw("Consciência", <NavPanelAwareness style={{height: '100%', width: '100%'}}/>, <Icon
             icon={book_2}/>, <NavPanelAwarenessPopup/>)}
-          {this.renderItemRaw("Dados que Segura", <NavPanelInformationYouHold style={{height: '100%', width: '100%'}}/>,
+          {this.renderItemRaw("Dados Mantidos", <NavPanelInformationYouHold style={{height: '100%', width: '100%'}}/>,
             <Icon
               icon={info}/>, <NavPanelInformationYouHoldPopup/>)}
           {this.renderItemRaw("Avisos de Priv.", <NavPanelPrivacyNotices style={{height: '100%', width: '100%'}}/>,

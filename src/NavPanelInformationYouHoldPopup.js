@@ -24,7 +24,7 @@ class NavPanelInformationYouHoldPopup extends PVGDPRScores
       'Você pode precisar organizar uma auditoria de \n'+
       'informações.\n';
     
-    this.title = "Dados que Segura";
+    this.title = "Dados Mantidos";
     this.icon = info;
     
     
